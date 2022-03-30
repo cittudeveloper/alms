@@ -11,7 +11,7 @@ class LeaveType(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self):
-        return {self.title}
+        return self.title
 
 
 class LeaveDuration(models.Model):
@@ -21,7 +21,7 @@ class LeaveDuration(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return {self.created_by}
+        return self.created_by
 
 class LeaveProcess(models.Model):
     leave_type = models.ForeignKey(LeaveType, on_delete=models.CASCADE)
@@ -32,14 +32,14 @@ class LeaveProcess(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return {self.created_by}
+        return self.created_by
 
 class LeaveApplicationStatus(models.Model):
     status = models.CharField(max_length=20)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return {self.created_by}
+        return self.created_by
 
 class LeaveRecommendation(models.Model):
     recommendation_status = models.ForeignKey(Signatory, on_delete=models.CASCADE)
@@ -48,7 +48,7 @@ class LeaveRecommendation(models.Model):
     created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return {self.created_by}
+        return self.created_by
 
 class LeaveResumption(models.Model):
     leave_application = models.ForeignKey('LeaveApplication', on_delete=models.CASCADE)
@@ -59,7 +59,7 @@ class LeaveResumption(models.Model):
     last_updated = models.DateTimeField(auto_now_add = True, auto_now=False)
 
     def __str__(self):
-        return {self.confirmed_by}
+        return self.confirmed_by
 
 
 
@@ -74,6 +74,6 @@ class LeaveApplication(models.Model):
     status = models.ForeignKey(LeaveApplicationStatus, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
-        return {self.user}
+        return self.user
 
 
